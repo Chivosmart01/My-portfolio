@@ -1,0 +1,346 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  --accent: #0891b2;
+  --accent-foreground: #ffffff;
+  --secondary: #0d9488;
+  --secondary-foreground: #ffffff;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #0891b2;
+  --radius: 0.625rem;
+  --popover: #ffffff;
+  --popover-foreground: #1e293b;
+  --primary: #0f172a;
+  --primary-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  /* Mask reveal motion (used by utility classes) */
+  --mask-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --mask-duration: 1s;
+  --mask-duration-short: 0.95s;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes staggerFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+
+  .animate-fade-in-left {
+    animation: fadeInLeft 0.5s ease-out both;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.4s ease-out both;
+  }
+
+  /* Staggered hero / entrance */
+  .stagger-item {
+    opacity: 0;
+    animation: staggerFadeUp 0.68s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .stagger-delay-0 {
+    animation-delay: 0ms;
+  }
+  .stagger-delay-1 {
+    animation-delay: 90ms;
+  }
+  .stagger-delay-2 {
+    animation-delay: 180ms;
+  }
+  .stagger-delay-3 {
+    animation-delay: 270ms;
+  }
+  .stagger-delay-4 {
+    animation-delay: 360ms;
+  }
+  .stagger-delay-5 {
+    animation-delay: 450ms;
+  }
+  .stagger-delay-6 {
+    animation-delay: 540ms;
+  }
+
+  /* Horizontal wipe (left → right), good for cards / bands */
+  .mask-reveal {
+    clip-path: inset(0 100% 0 0);
+    transition:
+      clip-path var(--mask-duration-short) var(--mask-ease),
+      transform 0.28s var(--mask-ease),
+      box-shadow 0.28s ease,
+      border-color 0.28s ease;
+  }
+
+  /* Center-out “scale mask” — inset opens from frame to full */
+  .mask-reveal-cinematic {
+    clip-path: inset(12% 12% 12% 12% round 0.75rem);
+    transition:
+      clip-path var(--mask-duration) var(--mask-ease),
+      transform 0.28s var(--mask-ease),
+      box-shadow 0.28s ease,
+      border-color 0.28s ease;
+  }
+
+  /* Vertical wipe for faux image / media strips (top → down) */
+  .mask-reveal-media {
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path var(--mask-duration) var(--mask-ease);
+  }
+
+  .mask-reveal.mask-reveal--in,
+  .mask-reveal-cinematic.mask-reveal--in,
+  .mask-reveal-media.mask-reveal--in {
+    clip-path: inset(0 0 0 0);
+  }
+
+  .mask-reveal-cinematic.mask-reveal--in {
+    clip-path: inset(0 0 0 0 round 0.75rem);
+  }
+
+  /* Nav link underline draw */
+  .nav-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-underline:hover::after,
+  .nav-underline:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  /* Mobile “spotlight” drawer — clip-path expands from top-right */
+  .mobile-spotlight-backdrop {
+    opacity: 0;
+    transition: opacity 0.32s var(--mask-ease);
+  }
+
+  .mobile-spotlight-backdrop--open {
+    opacity: 1;
+  }
+
+  .mobile-spotlight-panel {
+    clip-path: inset(0 0 100% 100% round 0.75rem);
+    transition: clip-path 0.42s var(--mask-ease);
+  }
+
+  .mobile-spotlight-panel--open {
+    clip-path: inset(0 0 0 0 round 0.75rem);
+  }
+
+  @keyframes mobileSpotlightItemIn {
+    from {
+      opacity: 0;
+      transform: translateX(-12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .mobile-spotlight-item {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+
+  .mobile-spotlight-drawer--items .mobile-spotlight-item {
+    animation: mobileSpotlightItemIn 0.42s var(--mask-ease) forwards;
+  }
+
+  .mobile-spotlight-drawer--items .mobile-spotlight-item:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .mobile-spotlight-drawer--items .mobile-spotlight-item:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .mobile-spotlight-drawer--items .mobile-spotlight-item:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .mobile-spotlight-drawer--items .mobile-spotlight-item:nth-child(4) {
+    animation-delay: 0.25s;
+  }
+
+  .mobile-spotlight-cta {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+
+  .mobile-spotlight-drawer--items .mobile-spotlight-cta {
+    animation: mobileSpotlightItemIn 0.42s var(--mask-ease) forwards;
+    animation-delay: 0.32s;
+  }
+
+  @keyframes projectImageOnload {
+    from {
+      opacity: 0.55;
+      transform: scale(1.08);
+      filter: saturate(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+      filter: saturate(1);
+    }
+  }
+
+  .project-image-onload {
+    animation: projectImageOnload 0.95s var(--mask-ease) both;
+    will-change: transform, opacity, filter;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stagger-item {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .mask-reveal,
+    .mask-reveal-cinematic,
+    .mask-reveal-media {
+      clip-path: inset(0 0 0 0);
+      transition: none;
+    }
+
+    .mask-reveal-cinematic.mask-reveal--in {
+      clip-path: inset(0 0 0 0);
+    }
+
+    .nav-underline::after {
+      transition: none;
+      transform: scaleX(0);
+    }
+
+    .nav-underline:hover::after,
+    .nav-underline:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .mobile-spotlight-backdrop {
+      transition: none;
+    }
+
+    .mobile-spotlight-panel {
+      transition: none;
+    }
+
+    .mobile-spotlight-panel--open {
+      clip-path: inset(0 0 0 0 round 0.75rem);
+    }
+
+    .mobile-spotlight-item,
+    .mobile-spotlight-cta {
+      animation: none !important;
+      opacity: 1;
+      transform: none;
+    }
+
+    .project-image-onload {
+      animation: none;
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+  }
+}
