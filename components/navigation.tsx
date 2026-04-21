@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { Menu, X, Download } from 'lucide-react'
+import { CV_DOWNLOAD_FILENAME, CV_HREF } from '@/lib/resume'
 
 const NAV_LINKS = [
   { label: 'About', id: 'about' },
@@ -141,8 +142,8 @@ export default function Navigation() {
             </button>
           ))}
           <a
-            href="/resume.pdf"
-            download="Yusuf_Abdullahi_Resume.pdf"
+            href={CV_HREF}
+            download={CV_DOWNLOAD_FILENAME}
             className="px-4 py-2 bg-accent text-white rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-accent/90 transition-colors"
           >
             <Download size={15} />
@@ -196,8 +197,8 @@ export default function Navigation() {
                   </button>
                 ))}
                 <a
-                  href="/resume.pdf"
-                  download="Yusuf_Abdullahi_Resume.pdf"
+                  href={CV_HREF}
+                  download={CV_DOWNLOAD_FILENAME}
                   onClick={() => closeDrawer()}
                   className="mobile-spotlight-cta mt-3 w-full px-4 py-2.5 bg-accent text-white rounded-lg text-sm font-semibold flex items-center justify-center gap-2 hover:bg-accent/90 transition-colors"
                 >

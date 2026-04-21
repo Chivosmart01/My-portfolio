@@ -3,6 +3,7 @@
 import { ArrowRight, Download } from 'lucide-react'
 import { MagneticButton } from '@/components/magnetic-button'
 import { useScrollY } from '@/hooks/use-scroll-y'
+import { CV_DOWNLOAD_FILENAME, CV_HREF } from '@/lib/resume'
 
 const SPECIALTIES = ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'] as const
 
@@ -66,8 +67,8 @@ export default function Hero() {
               <ArrowRight size={16} />
             </MagneticButton>
             <a
-              href="/resume.pdf"
-              download="Yusuf_Abdullahi_Resume.pdf"
+              href={CV_HREF}
+              download={CV_DOWNLOAD_FILENAME}
               className="px-7 py-3 bg-foreground text-background rounded-lg font-semibold text-sm flex items-center gap-2 hover:bg-foreground/85 transition-colors"
             >
               <Download size={16} />

@@ -1,6 +1,4 @@
-{"timestamp":"00:00:02.115","source":"Server","level":"WARN","message":"⚠ Slow filesystem detected. The benchmark took 232ms. If /Users/chivosmart/Downloads/portfolio/.next/dev is a network drive, consider moving it to a local folder.\nSee more: https://nextjs.org/docs/app/guides/local-development"}
-{"timestamp":"00:00:02.888","source":"Server","level":"LOG","message":""}
-{"timestamp":"00:00:10.761","source":"Server","level":"LOG","message":"○ Compiling / ..."}
-{"timestamp":"00:00:15.018","source":"Browser","level":"LOG","message":"%c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit"}
-{"timestamp":"00:00:15.018","source":"Browser","level":"LOG","message":"%c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {\"path\":\"/\",\"route\":\"/\"}"}
-{"timestamp":"00:00:15.019","source":"Browser","level":"LOG","message":"%c[Vercel Web Analytics]%c [view] http://localhost:3002/ color: rgb(120, 120, 120) color: inherit {\"dp\":\"/\",\"o\":\"http://localhost:3002/\",\"r\":\"\",\"sdkn\":\"@vercel/analytics/next\",\"sdkv\":\"1.5.0\",\"sv\":\"0.1.3\",\"ts\":1776801620034} /_vercel/insights/view"}
+{"timestamp":"00:00:00.863","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:15.902","source":"Browser","level":"LOG","message":"%c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit"}
+{"timestamp":"00:00:15.902","source":"Browser","level":"LOG","message":"%c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {\"path\":\"/\",\"route\":\"/\"}"}
+{"timestamp":"00:00:15.902","source":"Browser","level":"LOG","message":"%c[Vercel Web Analytics]%c [view] http://localhost:3001/ color: rgb(120, 120, 120) color: inherit {\"dp\":\"/\",\"o\":\"http://localhost:3001/\",\"r\":\"\",\"sdkn\":\"@vercel/analytics/next\",\"sdkv\":\"1.5.0\",\"sv\":\"0.1.3\",\"ts\":1776806900284} /_vercel/insights/view"}
