@@ -6,24 +6,15 @@ import { TiltSurface } from '@/components/tilt-surface'
 
 const PROJECTS = [
   {
-    title: 'Internet Banking Platform',
+    title: 'Nigeria Events (EventHive)',
     description:
-      'Built a full-featured internet banking interface for FCMB UK — account management, transactions, and compliance workflows serving thousands of daily users.',
-    tools: ['React', 'Next.js', 'TypeScript', 'REST APIs', 'Jest'],
-    color: 'bg-accent/8',
-    imageUrl: null,
-    liveUrl: '#',
-    githubUrl: '#',
-  },
-  {
-    title: 'Component Design System',
-    description:
-      'Created a shared component library with 50+ accessible, themeable components, Storybook documentation, and automated visual regression testing.',
-    tools: ['React', 'Tailwind CSS', 'Storybook', 'TypeScript', 'npm'],
+      'A discovery and publishing platform for events across Nigeria — browse by state, create listings, and highlight community activity with a polished marketing landing experience.',
+    tools: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
     color: 'bg-secondary/8',
-    imageUrl: null,
-    liveUrl: '#',
-    githubUrl: '#',
+    imageUrl: '/projects/eventhive-card.png',
+    animateOnLoad: true,
+    liveUrl: 'https://event-hive-ng.netlify.app',
+    githubUrl: 'https://github.com/Chivosmart01/EventHive',
   },
   {
     title: 'Play Tic, Tac, Toe',
@@ -35,26 +26,16 @@ const PROJECTS = [
     animateOnLoad: true,
     liveUrl: 'https://my-portfolio-jv6a.vercel.app',
     githubUrl: 'https://github.com/Chivosmart01/Tic-Tac-Toe--Project',
-  },
-  {
-    title: 'Real-Time Analytics Dashboard',
+  },{
+    title: 'My Tasks — Todo App',
     description:
-      'Developed an analytics dashboard with live-updating charts, filterable data tables, and exportable reports for internal stakeholders.',
-    tools: ['React', 'Recharts', 'Zustand', 'WebSockets', 'Node.js'],
+      'A task manager with productivity stats, filters, sorting, tags, priorities, optional due dates, search, and a clean dashboard-style UI.',
+    tools: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
     color: 'bg-accent/8',
-    imageUrl: null,
-    liveUrl: '#',
-    githubUrl: '#',
-  },
-  {
-    title: 'Cross-Platform Mobile App',
-    description:
-      'Shipped a React Native app with offline-first architecture, background sync, push notifications, and biometric auth across iOS and Android.',
-    tools: ['React Native', 'Firebase', 'Redux', 'TypeScript', 'Expo'],
-    color: 'bg-secondary/8',
-    imageUrl: null,
-    liveUrl: '#',
-    githubUrl: '#',
+    imageUrl: '/projects/todo-app-card.png',
+    animateOnLoad: true,
+    liveUrl: 'https://task-list-chivs.netlify.app',
+    githubUrl: 'https://github.com/Chivosmart01/Todo-app',
   },
 ] as const
 

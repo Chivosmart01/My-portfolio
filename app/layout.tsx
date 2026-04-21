@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   title: 'Yusuf Abdullahi — Senior Frontend Engineer',
   description:
     'Portfolio of Yusuf Abdullahi, a Senior Frontend Engineer specializing in React, Next.js, and scalable web applications.',
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml', sizes: 'any' }],
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({
